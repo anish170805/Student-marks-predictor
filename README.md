@@ -18,14 +18,23 @@ The dataset is stored in `Notebook/Data/stud.csv`.
 
 ### Project Structure
 - `src/components/`: Contains modules for data ingestion, data transformation, and model training.
-- `src/pipeline/`: Contains training and prediction pipeline scripts.
+- `src/pipeline/`: Contains the training pipeline (`train_pipeline.py`) and prediction pipeline (`predict_pipeline.py`).
 - `artifacts/`: Stores processed data, trained model (`model.pkl`), and preprocessor (`preprocessor.pkl`).
 - `Notebook/`: Jupyter notebooks for exploratory data analysis and model training.
+- `templates/`: Contains HTML files for the web application.
+- `app.py`: A Flask web application for serving the model and making predictions.
 - `requirements.txt`: Python dependencies.
 - `setup.py`: Setup script for the project.
 - `README.md`: Project documentation.
 
 ### Installation
+1. Create a virtual environment:
+```
+conda create -n stud_perf python=3.8 -y
+conda activate stud_perf
+```
+
+2. Install the required dependencies:
 Install the required dependencies using:
 ```
 pip install -r requirements.txt
