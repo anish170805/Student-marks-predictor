@@ -50,7 +50,7 @@ class DataIngestion:
              
         except Exception as e:
             logging.error(f"Error occurred while reading the dataset: {e}")
-
+            raise CustomException(e, sys)
 
 if __name__ == "__main__":
     obj = DataIngestion()

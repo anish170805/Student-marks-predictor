@@ -46,7 +46,7 @@ class ModelTrainer:
 
             params = {
                 "Random Forest": {
-                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    'n_estimators': [2, 4, 8, 16, 32, 64, 128]
                 },
 
                 "Decision Tree": {
@@ -54,9 +54,9 @@ class ModelTrainer:
                 },
 
                 "Gradient Boosting": {
-                    'learning_rate': [0.1, 0.01, 0.05, 0.001],
+                    'learning_rate': [0.1, 0.01, 0.05, 0.001,0.0001],
                     'subsample': [0.6, 0.7, 0.75, 0.8, 0.85, 0.9],
-                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    'n_estimators': [2, 4, 8, 16, 32, 64, 128]
                 },
 
                 "Linear Regression": {},
@@ -65,18 +65,18 @@ class ModelTrainer:
 
                 "XGB Regressor": {
                     'learning_rate': [0.1, 0.01, 0.05, 0.001],
-                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    'n_estimators': [2, 4, 8, 16, 32, 64, 128]
                 },
 
                 "CatBoosting Regressor": {
                     'depth': [6, 8, 10],
-                    'learning_rate': [0.01, 0.05, 0.1],
-                    'iterations': [30, 50, 100]
+                    'learning_rate': [0.01, 0.05, 0.1,0.001],
+                    'iterations': [30, 50, 80,100]
                 },
 
                 "AdaBoost Regressor": {
                     'learning_rate': [0.1, 0.01, 0.05, 0.001],
-                    'n_estimators': [8, 16, 32, 64, 128, 256]
+                    'n_estimators': [2, 4, 8, 16, 32, 64, 128]
                 }   
             }
 
@@ -84,9 +84,7 @@ class ModelTrainer:
 
             best_model_score = max(sorted(model_report.values()))
 
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
-            ]
+            best_model_name = max(model_report, key=model_report.get)
             best_model = models[best_model_name]
 
             if best_model_score < 0.6:
@@ -106,5 +104,3 @@ class ModelTrainer:
 
         except Exception as e:
             raise CustomException(e, sys)
-
-
