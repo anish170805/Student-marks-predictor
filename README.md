@@ -1,4 +1,4 @@
-## End-to-End Machine Learning Project
+## Student marks predictor
 
 ### Project Description
 This project is an end-to-end machine learning pipeline to predict students' math scores based on various features such as gender, race/ethnicity, parental level of education, lunch type, test preparation course, reading score, and writing score. The pipeline includes data ingestion, data transformation, model training with hyperparameter tuning, and model evaluation.
